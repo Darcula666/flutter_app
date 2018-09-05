@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import  'package:flutter_app/second.dart';
+import 'package:flutter_app/MyGridView.dart';
+import 'package:flutter_app/MyListView.dart';
 void main() {
   runApp(new MyApp());
 }
@@ -25,9 +26,13 @@ class MyStatefullState extends State {
       home: new Scaffold(
         appBar: new AppBar(
           title: new Text('登录'),
-          leading: new Icon(Icons.arrow_back),
-          //flexibleSpace: new Text("456"),
-        ),
+          leading: new InkWell(
+            onTap: (){
+
+            },
+            child:  new Icon(Icons.menu),
+          ),
+          ),
         body: new MyBody()
       ),
     );
@@ -84,7 +89,10 @@ class MyFullState extends State {
         ),
         new InkWell(
           onTap: (){
-            print(_userPassController.text);
+            Navigator.push(
+              context,
+              new MaterialPageRoute(builder: (context) => new MyListView( items: new List<String>.generate(20, (i) => "Item ${i + 1}"))),
+            );
           },
           child: new Padding(
             padding: const EdgeInsets.only(left:260.0,right: 2.0),
@@ -104,7 +112,7 @@ class MyFullState extends State {
                 onPressed: (){
                   Navigator.push(
                     context,
-                    new MaterialPageRoute(builder: (context) => new MyListView()),
+                    new MaterialPageRoute(builder: (context) => new MyGridView()),
                   );
                 },
                 child: new Padding(

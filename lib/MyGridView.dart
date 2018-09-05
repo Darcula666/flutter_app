@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyListView extends StatelessWidget {
+class MyGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = 'Grid List';
