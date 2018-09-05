@@ -3,9 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/MyGridView.dart';
 import 'package:flutter_app/MyListView.dart';
+import 'package:flutter_app/MyHttp.dart';
 void main() {
   runApp(new MyApp());
 }
+
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -125,6 +127,29 @@ class MyFullState extends State {
                 )),
           ),
         ),
+        new Container(
+          margin: new EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0.0),
+          width: 360.0,
+          child: new Card(
+            color: Colors.green,
+            elevation: 6.0,
+            child: new FlatButton(
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    new MaterialPageRoute(builder: (context) => new MyHttp()),
+                  );
+                },
+                child: new Padding(
+                  padding: new EdgeInsets.all(10.0),
+                  child: new Text('Http请求',
+                    style: new TextStyle(
+                        color: Colors.white,fontSize: 16.0
+                    ),
+                  ),
+                )),
+          ),
+        )
       ],
     );
   }
