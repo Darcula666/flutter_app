@@ -38,15 +38,19 @@ class MyListView extends StatelessWidget {
                     new SnackBar(content: new Text("$item dismissed")));
               },
               // Show a red background as the item is swiped away
-              background: new Container(color: Colors.red),
+              background: new Container(color: Colors.deepOrangeAccent),
               child: new Card(
                 color: Colors.amber[300],
-                child:  new ListTile(title: new Text(
+                child: new Container(
+                  child: new ListTile(title: new Text(
                     '$item',
                     style: new TextStyle(
-                      fontSize: 20.0,
-                          fontStyle: FontStyle.italic
+                        fontSize: 20.0,
+                        fontStyle: FontStyle.italic
                     ),)),
+                ),
+
+
               )
 
             );

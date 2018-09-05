@@ -55,7 +55,7 @@ class MyFullState extends State {
       children: <Widget>[
         new Padding(
           padding: const EdgeInsets.all(1.0),
-          child:  new Image.network("http://f005.bai.com/data/uploads/2014/1022/11/ce15c0e61100540fde5eb6d2b282a984_middle.jpeg",
+          child:  new Image.network("http://img.soogif.com/EjndN9wmtb6NyII6KJj8kxv6vvWl7M1r.gif",
               height: 280.0,
               width: window.physicalSize.width),),
         new Padding(
