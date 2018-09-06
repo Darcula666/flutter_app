@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/MyGridView.dart';
 import 'package:flutter_app/MyListView.dart';
 import 'package:flutter_app/MyHttp.dart';
+
 void main() {
   runApp(new MyApp());
 }
@@ -26,40 +27,51 @@ class MyStatefullState extends State {
         accentColor: Colors.cyan[600],
       ),
       home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('登录'),
-          leading: new InkWell(
-            onTap: (){
+          appBar: new AppBar(
+            title: new Text('登录'),
+            leading: new InkWell(
+              onTap: () {},
+              child: new Icon(Icons.menu),
+            ),
+            actions: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Icon(Icons.search),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: Icon(Icons.more_vert),
+              ),
+            ],
 
-            },
-            child:  new Icon(Icons.menu),
           ),
-          ),
-        body: new MyBody()
-      ),
+          body: new MyBody()),
     );
   }
 }
-class MyBody extends StatefulWidget{
+
+class MyBody extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return new MyFullState();
   }
-
 }
 
 class MyFullState extends State {
-  var _userNameController=new TextEditingController();
-  var _userPassController=new TextEditingController();
+  var _userNameController = new TextEditingController();
+  var _userPassController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-  return  new ListView(
+    return new ListView(
       children: <Widget>[
         new Padding(
-          padding: const EdgeInsets.all(1.0),
-          child:  new Image.network("http://img.soogif.com/EjndN9wmtb6NyII6KJj8kxv6vvWl7M1r.gif",
+          padding: const EdgeInsets.all(8.0),
+          child: new Image.network(
+              "http://f005.bai.com/data/uploads/2014/1022/12/ac0866980a640647a1c9c3c29295bc3d_middle.jpeg",
               height: 280.0,
-              width: window.physicalSize.width),),
+              width: window.physicalSize.width),
+        ),
         new Padding(
           padding: const EdgeInsets.all(8.0),
           child: new TextField(
@@ -68,11 +80,9 @@ class MyFullState extends State {
             decoration: new InputDecoration(
                 hintText: '请输入用户名',
                 border: new OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(Radius.circular(1.0))
-                )
-            ),
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(1.0)))),
           ),
-
         ),
         new Padding(
           padding: const EdgeInsets.all(8.0),
@@ -83,58 +93,61 @@ class MyFullState extends State {
             decoration: new InputDecoration(
                 hintText: '请输入密码',
                 border: new OutlineInputBorder(
-                    borderRadius: const BorderRadius.all(Radius.circular(1.0))
-                )
-            ),
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(1.0)))),
           ),
-
         ),
         new InkWell(
-          onTap: (){
-            Navigator.push(
-              context,
-              new MaterialPageRoute(builder: (context) => new MyListView( items: new List<String>.generate(20, (i) => "Item ${i + 1}"))),
-            );
-          },
-          child: new Padding(
-            padding: const EdgeInsets.only(left:260.0,right: 2.0),
-            child: new Text(
-              '没有账号？马上注册',
-              style: new TextStyle(color: Colors.black38),
-            ),
-          ),
-        ),
+            onTap: () {
+              Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new MyListView(
+                        items: new List<String>.generate(
+                            20, (i) => "Item ${i + 1}"))),
+              );
+            },
+            child: new Padding(
+              padding: EdgeInsets.all(8.0),
+              child: new Align(
+                alignment: Alignment.centerRight,
+                child: new Text(
+                  '没有账号？马上注册',
+                  style: new TextStyle(color: Colors.black38),
+                ),
+              ),
+            )),
         new Container(
-          margin: new EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0.0),
+          margin: new EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
           width: 360.0,
           child: new Card(
             color: Colors.green,
             elevation: 6.0,
             child: new FlatButton(
-                onPressed: (){
+                onPressed: () {
                   Navigator.push(
                     context,
-                    new MaterialPageRoute(builder: (context) => new MyGridView()),
+                    new MaterialPageRoute(
+                        builder: (context) => new MyGridView()),
                   );
                 },
                 child: new Padding(
                   padding: new EdgeInsets.all(10.0),
-                  child: new Text('马上登录',
-                    style: new TextStyle(
-                        color: Colors.white,fontSize: 16.0
-                    ),
+                  child: new Text(
+                    '马上登录',
+                    style: new TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
                 )),
           ),
         ),
         new Container(
-          margin: new EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0.0),
+          margin: new EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
           width: 360.0,
           child: new Card(
             color: Colors.green,
             elevation: 6.0,
             child: new FlatButton(
-                onPressed: (){
+                onPressed: () {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(builder: (context) => new MyHttp()),
@@ -142,10 +155,9 @@ class MyFullState extends State {
                 },
                 child: new Padding(
                   padding: new EdgeInsets.all(10.0),
-                  child: new Text('Http请求',
-                    style: new TextStyle(
-                        color: Colors.white,fontSize: 16.0
-                    ),
+                  child: new Text(
+                    'Http请求',
+                    style: new TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
                 )),
           ),
