@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/MyGridView.dart';
 import 'package:flutter_app/MyListView.dart';
 import 'package:flutter_app/MyHttp.dart';
+import 'package:flutter_app/MyRow.dart';
 
 void main() {
   runApp(new MyApp());
@@ -17,6 +18,8 @@ class MyApp extends StatefulWidget {
 }
 
 class MyStatefullState extends State {
+  Drawer drawer =new  Drawer();
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -27,10 +30,16 @@ class MyStatefullState extends State {
         accentColor: Colors.cyan[600],
       ),
       home: new Scaffold(
+        drawer: drawer,
           appBar: new AppBar(
             title: new Text('登录'),
             leading: new InkWell(
-              onTap: () {},
+              onDoubleTap: (){
+                print('onDoubleTap');
+              },
+              onTap: (){
+                print('onTap');
+              },
               child: new Icon(Icons.menu),
             ),
             actions: <Widget>[
@@ -157,6 +166,28 @@ class MyFullState extends State {
                   padding: new EdgeInsets.all(10.0),
                   child: new Text(
                     'Http请求',
+                    style: new TextStyle(color: Colors.white, fontSize: 16.0),
+                  ),
+                )),
+          ),
+        ),
+        new Container(
+          margin: new EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+          width: 360.0,
+          child: new Card(
+            color: Colors.green,
+            elevation: 6.0,
+            child: new FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    new MaterialPageRoute(builder: (context) => new MyScaffold()),
+                  );
+                },
+                child: new Padding(
+                  padding: new EdgeInsets.all(10.0),
+                  child: new Text(
+                    'myRow',
                     style: new TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
                 )),
